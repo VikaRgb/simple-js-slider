@@ -1,49 +1,32 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #f0f0f0;
-}
-
 .slider {
-  position: relative;
-  width: 800px;
-  height: 400px;
-  overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 800px; /* Або інша потрібна ширина */
+  overflow: hidden; /* Маскуємо вміст, що виходить за межі слайдера */
+  position: relative; /* Для позиціонування кнопок */
 }
 
 .slides {
-  display: flex;
-
+  display: flex; /* Розташовуємо зображення в ряд */
+  transform: translateX(0); /* Початкове положення */
+  transition: transform 0.5s ease-in-out; /* Вмикаємо плавну анімацію */
 }
 
 .slides img {
-  width: 800px;
-  height: 400px;
+  width: 800px; /* Ширина кожного зображення */
+  flex-shrink: 0; /* Забороняємо стискання зображень */
 }
 
-button {
+.prev,
+.next {
   position: absolute;
   top: 50%;
-	
   transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 24px;
+  padding: 10px 20px;
+  background: rgba(0, 0, 0, 0.5);
   color: white;
   border: none;
-  padding: 10px;
   cursor: pointer;
-  font-size: 18px;
-  border-radius: 50%;
-}
-
-button:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 10; /* Щоб кнопки були над зображеннями */
 }
 
 .prev {
@@ -53,3 +36,8 @@ button:hover {
 .next {
   right: 10px;
 }
+
+/* Необов'язковий клас, якщо ви хочете керувати анімацією через JS */
+/* .sliding {
+  transition: transform 0.5s ease-in-out;
+} */
